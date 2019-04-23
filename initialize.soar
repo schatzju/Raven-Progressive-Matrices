@@ -1,0 +1,9 @@
+sp {propose*initialize-fairaven
+(state <s> ^type state
+			^superstate nil 
+          -^name fairaven)
+-->
+(<s> ^operator <o> +)
+(<o> ^name fairaven)
+}
+

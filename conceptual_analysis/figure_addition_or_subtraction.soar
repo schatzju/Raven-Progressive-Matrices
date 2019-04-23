@@ -1,0 +1,37 @@
+#2 rules total
+
+#if it needs to be better create a new entry that is the combination or subtraction of the first two columns
+
+#figure addition
+sp {propose*operator*figure_addition
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			-^figure_addition.row <r1>
+			^entry { <> <e3> <e1> }
+			^entry { <> <e1> <e2> }
+			^entry { <> <e2> <e3> })
+(<e1> ^id.row <r1>
+	 	^figure.shape <s1>)
+(<e2> ^id.row <r1>
+		^figure.shape <s2>)
+(<e2> ^id.row <r1>
+		^figure.shape <s1>
+		^figure.shape { <> <s1> <s2>})
+-->
+(<s> ^operator <o> + < =)
+(<o> ^name figure_addition
+	^row <r1>)
+}
+
+sp {apply*operator*figure_addition
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name figure_addition
+	^row <r1>)
+-->
+(<s> ^figure_addition <figAdd>)
+(<figAdd> ^row <r1>)
+}
+

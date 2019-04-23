@@ -1,0 +1,143 @@
+#10 rules total
+
+sp {elaborate*encoding_phase_row
+(state <s> ^type state
+			^name fairaven
+			^operator <o> +)
+(<o> ^name create_row)		
+-->
+(<s> ^phase encoding)
+}
+
+sp {elaborate*encoding_phase_col
+(state <s> ^type state
+			^name fairaven
+			^operator <o> +)
+(<o> ^name create_col)		
+-->
+(<s> ^phase encoding)
+}
+
+sp {propose*operator*get_input
+(state <s> ^type state
+			^name fairaven
+			^iox <iox>
+			-^entry <ent1>)
+(<iox> ^entry <ent1>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_entry)
+}
+
+sp {apply*operator*get_input
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^iox <iox>
+			-^entry <ent1>)
+(<o> ^name add_entry)
+(<iox> ^entry <ent1>)
+-->
+(<s> ^entry <ent1>)
+}
+
+sp {propose*operator*create_row
+(state <s> ^type state
+			^name fairaven
+			^entry <ent1>
+			-^group.row <num>)
+(<ent1> ^id.row <num>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name create_row
+	^id <num>)
+}
+
+sp {apply*operator*create_row
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name create_row
+	^id <num>)
+-->
+(<s> ^group <r2>)
+(<r2> ^row <num>)
+}
+
+sp {propose*operator*add_entry_to_row
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			^entry <ent>)
+(<g1> ^row <num>
+	-^entry <ent>)
+(<ent> ^id.row <num>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name add_entry_to_row)
+}
+sp {apply*operator*add_entry_to_row
+(state <s> ^type state
+			^name fairaven
+			^entry <ent>
+			^group <g1>
+			^operator <o>)
+(<g1> ^row <num>
+	-^entry <ent>)
+(<ent> ^id.row <num>)
+(<o> ^name add_entry_to_row)
+-->
+(<g1> ^entry <ent>)
+}
+
+sp {propose*operator*create_col
+(state <s> ^type state
+			^name fairaven
+			^entry <ent1>
+			-^group.col <num>)
+(<ent1> ^id.col <num>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name create_col
+	^id <num>)
+}
+
+sp {apply*operator*create_col
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name create_col
+	^id <num>)
+-->
+(<s> ^group <c1>)
+(<c1> ^col <num>)
+}
+
+sp {propose*operator*add_entry_to_col
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			^entry <ent>)                                                                      
+(<g1> ^col <num>
+	-^entry <ent>)
+(<ent> ^id.col <num>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name add_entry_to_col)
+}
+
+sp {apply*operator*add_entry_to_col
+(state <s> ^type state
+			^name fairaven
+			^entry <ent>
+			^group <g1>
+			^operator <o>)
+(<g1> ^col <num>
+	-^entry <ent>)
+(<ent> ^id.col <num>)
+(<o> ^name add_entry_to_col)
+-->
+(<g1> ^entry <ent>)
+}
+
+

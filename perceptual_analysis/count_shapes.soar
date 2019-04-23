@@ -1,0 +1,181 @@
+#10 rules total
+
+#pairwise comparisons
+
+sp {elaborate*encoding_phase_count_shapes
+(state <s> ^type state
+			^name fairaven
+			^entry <e1>
+			-^phase encoding)
+(<e1> ^figure <f1>)
+(<f1> -^counted <x>)		
+-->
+(<s> ^phase count_shapes)
+}
+sp {elaborate*encoding_phase_count_shapes_options
+(state <s> ^type state
+			^name fairaven
+			^options.entry <e1>
+			-^phase encoding)
+(<e1> ^figure <f1>)
+(<f1> -^counted <x>)		
+-->
+(<s> ^phase count_shapes)
+}
+
+
+sp {propose*operator*count_shapes_in_entry
+(state <s> ^type state
+			^name fairaven
+			^entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		-^shape_count.type <s1>)
+(<f1> ^shape <s1>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name count_shapes
+	^entry <e1>
+	^figure <f1>)
+}
+
+sp {propose*operator*count_shapes_in_entry_options
+(state <s> ^type state
+			^name fairaven
+			^options.entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		-^shape_count.type <s1>)
+(<f1> ^shape <s1>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name count_shapes
+	^entry <e1>
+	^figure <f1>)
+}
+
+
+sp {apply*operator*count_shapes_in_entry
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		-^shape_count.type <s1>)
+(<f1> ^shape <s1>)
+(<o> ^name count_shapes
+	^entry <e1>
+	^figure <f1>)
+-->
+(<e1> ^shape_count <shpcnt>)
+(<shpcnt> ^type <s1>
+	^count 1)
+(<f1> ^counted <x>)
+}
+
+sp {apply*operator*count_shapes_in_entry_options
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^options.entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		-^shape_count.type <s1>)
+(<f1> ^shape <s1>)
+(<o> ^name count_shapes
+	^entry <e1>
+	^figure <f1>)
+-->
+(<e1> ^shape_count <shpcnt>)
+(<shpcnt> ^type <s1>
+	^count 1)
+(<f1> ^counted <x>)
+}
+
+
+sp {propose*operator*count_shapes_in_entry_cont
+(state <s> ^type state
+			^name fairaven
+			^entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		^shape_count <shpcnt>)
+(<shpcnt> ^type <s1>)
+(<f1> ^shape <s1>
+	-^counted <x>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name count_shapes_cont
+	^entry <e1>
+	^figure <f1>)
+}
+
+sp {propose*operator*count_shapes_in_entry_cont_options
+(state <s> ^type state
+			^name fairaven
+			^options.entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+		^shape_count <shpcnt>)
+(<shpcnt> ^type <s1>)
+(<f1> ^shape <s1>
+	-^counted <x>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name count_shapes_cont
+	^entry <e1>
+	^figure <f1>)
+}
+
+sp {apply*operator*count_shapes_in_entry_cont
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+	^shape_count <ctshp>)
+(<ctshp> ^type <s1>
+		^count <cnt>)
+(<f1> ^shape <s1>)
+(<o> ^name count_shapes_cont
+	^entry <e1>
+	^figure <f1>)
+-->
+(<ctshp> ^count (+ <cnt> 1))
+(<ctshp> ^count <cnt> -)
+(<f1> ^counted <x>)
+}
+
+sp {apply*operator*count_shapes_in_entry_cont_options
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^options.entry <e1>
+			^phase count_shapes)
+(<e1> ^figure <f1>
+	^shape_count <ctshp>)
+(<ctshp> ^type <s1>
+		^count <cnt>)
+(<f1> ^shape <s1>)
+(<o> ^name count_shapes_cont
+	^entry <e1>
+	^figure <f1>)
+-->
+(<ctshp> ^count (+ <cnt> 1))
+(<ctshp> ^count <cnt> -)
+(<f1> ^counted <x>)
+}
+
+
+
+
+
+
+
+
+
+
+
+

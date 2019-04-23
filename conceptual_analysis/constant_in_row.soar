@@ -1,0 +1,163 @@
+#6 rules total
+
+#constant in a row
+sp {propose*operator*generalize_row_correspondence
+(state <s> ^type state
+			^name fairaven
+			^constant_in_row <rc1> 
+			^constant_in_row { <> <rc1> <rc2> }
+			-^constant_in_row_generalized.constant_in_row <rc1>
+			-^phase encoding)
+(<rc1> ^type <typ>
+		^row <rw1>)
+(<rc2> ^type <typ>
+		^row { <> <rw1> <rw2> })
+-->
+(<s> ^operator <o> + =)
+(<o> ^name generalize_row_correspondence
+	^type <typ>
+	^constant_in_row1 <rc1>
+	^constant_in_row2 <rc2>)
+}
+
+sp {apply*operator*generalize_row_correspondence
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name generalize_row_correspondence
+	^type <type>
+	^constant_in_row1 <rc1>
+	^constant_in_row2 <rc2>)
+-->
+(<s> ^constant_in_row_generalized <cr>)
+(<cr> ^type <type>
+		^constant_in_row <rc1>
+		^constant_in_row <rc2>)
+}
+
+#constant in a row numerosity
+sp {propose*operator*generalize_size_row
+(state <s> ^type state
+			^name fairaven
+			^size <sizerw1> 
+			^size { <> <sizerw1> <sizerw2> }
+			-^constant_in_row_generalized.constant_in_row <sizerw1>
+			-^phase encoding)
+(<sizerw1> ^amount <x>
+		^row <rw1>)
+(<sizerw2> ^amount <x>
+		^row { <> <rw1> <rw2> })
+-->
+(<s> ^operator <o> + =)
+(<o> ^name generalize_size_row
+	^amount <x>
+	^size1 <sizerw1>
+	^size2 <sizerw2>)
+}
+
+sp {apply*operator*generalize_size_row
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name generalize_size_row
+	^amount <amt>
+	^size1 <sizerw1>
+	^size2 <sizerw2>)
+-->
+(<s> ^constant_in_row_generalized <cr>)
+(<cr> ^type <type>
+		^constant_in_row <sizerw1>
+		^constant_in_row <sizerw2>)
+(<type> ^name size
+		^amount <amt>)
+}
+
+#constant in a row numerosity
+sp {propose*operator*generalize_numerosity_row
+(state <s> ^type state
+			^name fairaven
+			^numerosity <num1> 
+			^numerosity { <> <num1> <num2> }
+			-^constant_in_row_generalized.constant_in_row <num1>
+			-^phase encoding)
+(<num1> ^amount <x>
+		^row <rw1>
+		^type <shape>)
+(<num2> ^amount <x>
+		^row { <> <rw1> <rw2> }
+		^type <shape>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name generalize_numerosity_row
+	^amount <x>
+	^numerosity1 <num1>
+	^numerosity2 <num2>)
+}
+
+sp {apply*operator*generalize_numerosity_row
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name generalize_numerosity_row
+	^amount <amt>
+	^numerosity1 <num1>
+	^numerosity2 <num2>)
+(<num1> ^type <shape>)
+-->
+(<s> ^constant_in_row_generalized <cr>)
+(<cr> ^type <type>
+		^constant_in_row <num1>
+		^constant_in_row <num2>)
+(<type> ^name numerosity
+		^amount <amt>
+		^type <shape>)
+}
+
+# #constant in a row numerosity
+# sp {propose*operator*generalize_numerosity_col
+# (state <s> ^type state
+# 			^name fairaven
+# 			^numerosity <num1> 
+# 			^numerosity { <> <num1> <num2> }
+# 			-^constant_in_col_generalized.constant_in_col <num1>
+# 			-^phase encoding)
+# (<num1> ^amount <x>
+# 		^col <col1>)
+# (<num2> ^amount <x>
+# 		^col { <> <col1> <col2> })
+# -->
+# (<s> ^operator <o> + =)
+# (<o> ^name generalize_numerosity_col
+# 	^amount <x>
+# 	^numerosity1 <num1>
+# 	^numerosity2 <num2>)
+# }
+
+# sp {apply*operator*generalize_numerosity_col
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o>)
+# (<o> ^name generalize_numerosity_col
+# 	^amount <amt>
+# 	^numerosity1 <num1>
+# 	^numerosity2 <num2>)
+# -->
+# (<s> ^constant_in_col_generalized <cr>)
+# (<cr> ^type <type>
+# 		^constant_in_col <num1>
+# 		^constant_in_col <num2>)
+# (<type> ^name numerosity
+# 		^amount <amt>)
+# }
+
+
+
+
+
+
+
+
+
+
+
+

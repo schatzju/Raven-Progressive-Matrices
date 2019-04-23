@@ -1,0 +1,169 @@
+#4 rules total
+# #texture
+# sp {propose*operator*distribution_of_three_texture
+# (state <s> ^type state
+# 			^name fairaven
+# 			^pair <p1>
+# 			^numerosity <numer>
+# 			-^distribution_of_three.type texture
+# 			-^distribution_of_three.row <r1>
+# 			^entry { <> <e3> <e1> }
+# 			^entry { <> <e1> <e2> }
+# 			^entry { <> <e2> <e3> } ) 
+# (<e1> ^id.row <r1>
+# 	 	^figure.texture { <> <s3> <s1> } )
+# (<e2> ^id.row <r1>
+# 		^figure.texture { <> <s1> <s2> } )
+# (<e3> ^id.row <r1>
+# 		^figure.texture { <> <s2> <s3> } )
+# -->
+# (<s> ^operator <o> + =)
+# (<o> ^name distribution_of_three_texture
+# 	^row <r1>
+# 	^entry1 <e1>
+# 	^entry2 <e2>
+# 	^entry3 <e3>)
+# }
+
+# sp {apply*operator*distribution_of_three_texture
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o>)
+# (<o> ^name distribution_of_three_texture
+# 	^row <r1>
+# 	^entry1 <e1>
+# 	^entry2 <e2>
+# 	^entry3 <e3>)
+# -->
+# (<s> ^distribution_of_three <distThree>)
+# (<distThree> ^type texture
+# 			^row <r1>)
+# }
+
+#shape
+sp {propose*operator*distribution_of_three_shape
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			-^distribution_of_three.row <r1>
+			^entry { <> <e3> <e1> }
+			^entry { <> <e1> <e2> }
+			^entry { <> <e2> <e3> } ) 
+(<e1> ^id.row <r1>
+	 	^figure.shape { <> <s3> <s1> } )
+(<e2> ^id.row <r1>
+		^figure.shape { <> <s1> <s2> } )
+(<e3> ^id.row <r1>
+		^figure.shape { <> <s2> <s3> } )
+-->
+(<s> ^operator <o> + =)
+(<o> ^name distribution_of_three_shape
+	^row <r1>
+	^shape1 <s1>
+	^shape2 <s2>
+	^shape3 <s3>)
+}
+
+sp {apply*operator*distribution_of_three_shape
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name distribution_of_three_shape
+	^row <r1>
+	^shape1 <s1>
+	^shape2 <s2>
+	^shape3 <s3>)
+-->
+(<s> ^distribution_of_three <distThree>)
+(<distThree> ^type shape
+			^row <r1>
+			^shape <s1>
+			^shape <s2>
+			^shape <s3>)
+}
+
+sp {propose*operator*generalize_distribution_of_three_shape
+(state <s> ^type state
+			^name fairaven
+			^distribution_of_three <distThree>
+			^distribution_of_three { <> <distThree> <distThree2> }
+			-^distribution_of_three_generalized.type shape)
+(<distThree> ^type shape
+			^row <r1>
+			^shape { <> <s3> <s1> }
+			^shape { <> <s1> <s2> }
+			^shape { <> <s2> <s3> })
+(<distThree2> ^type shape
+			^row { <> <r1> <r2> }
+			^shape { <> <s3> <s1> }
+			^shape { <> <s1> <s2> }
+			^shape { <> <s2> <s3> })
+-->
+(<s> ^operator <o> + =)
+(<o> ^name generalize_distribution_of_three_shape
+	^shape1 <s1>
+	^shape2 <s2>
+	^shape3 <s3>)
+}
+
+sp {apply*operator*generalize_distribution_of_three_shape
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name generalize_distribution_of_three_shape
+		^shape1 <s1>
+		^shape2 <s2>
+		^shape3 <s3>)
+-->
+(<s> ^distribution_of_three_generalized <gen>)
+(<gen> ^type shape
+		^shape <s1>
+		^shape <s2>
+		^shape <s3>
+		^flag 1
+		^flag 2)
+}
+
+#orientation
+# sp {propose*operator*distribution_of_three_orientation
+# (state <s> ^type state
+# 			^name fairaven
+# 			^pair <p1>
+# 			^numerosity <numer>
+# 			-^distribution_of_three.type orientation
+# 			-^distribution_of_three.row <r1>
+# 			^entry { <> <e3> <e1> }
+# 			^entry { <> <e1> <e2> }
+# 			^entry { <> <e2> <e3> } ) 
+# (<e1> ^id.row <r1>
+# 	 	^figure.orientation { <> <s3> <s1> } )
+# (<e2> ^id.row <r1>
+# 		^figure.orientation { <> <s1> <s2> } )
+# (<e3> ^id.row <r1>
+# 		^figure.orientation { <> <s2> <s3> } )
+# -->
+# (<s> ^operator <o> + =)
+# (<o> ^name distribution_of_three_orientation
+# 	^row <r1>
+# 	^entry1 <e1>
+# 	^entry2 <e2>
+# 	^entry3 <e3>)
+# }
+
+# sp {apply*operator*distribution_of_three_orientation
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o>)
+# (<o> ^name distribution_of_three_orientation
+# 	^row <r1>
+# 	^entry1 <e1>
+# 	^entry2 <e2>
+# 	^entry3 <e3>)
+# -->
+# (<s> ^distribution_of_three <distThree>)
+# (<distThree> ^type orientation
+# 			^row <r1>)
+# }
+
+
+

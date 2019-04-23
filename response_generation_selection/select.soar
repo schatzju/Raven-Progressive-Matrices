@@ -1,0 +1,308 @@
+#13 rules total
+
+sp {elaborate*phase_generate_answer
+(state <s> ^type state
+			^name fairaven
+			^options <op>)
+(<op> ^entry <e1>
+		^entry { <> <e1> <e2> })	
+-->
+(<s> ^phase no_answer)
+}
+#there does not exist something to match which doesn't have a flag
+# sp {elaborate*keep_flag_numerosity
+# (state <s> ^type state
+# 			^name fairaven			
+# 			^options <op>
+# 			^entryGuess <e1>)
+# (<op> ^entry <e2>)
+# (<e1> ^numerosity <numer>)
+# (<numer> ^amount <num>
+# 	^type <shape>)
+# (<e2> ^shape_count <shpcnt>)
+# (<shpcnt> ^count <num>
+# 		^type <shape>)
+# -->
+# (<e2> ^flag keep_count)
+# (<e1> ^flags <keep_count>)
+# }
+
+# sp {elaborate*keep_flag_size
+# (state <s> ^type state
+# 			^name fairaven			
+# 			^options <op>
+# 			^entryGuess <e1>)
+# (<op> ^entry <e2>)
+# (<e1> ^size <sz>)
+# (<e2> ^figure.size <sz>)
+# -->
+# (<e2> ^flag keep_size)
+# }
+
+sp {propose*operator*add_flag_numerosity
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^shape_count <shpcnt>
+	-^numerflg.type <shape>)
+(<shpcnt> ^count <num>
+ 		^type <shape>)
+(<e1> ^numerosity <numer>)
+(<numer> ^amount <num>
+		^type <shape>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_flag_numerosity)
+}
+
+sp {apply*operator*add_flag_numerosity
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>			
+			^options <op>
+			^operator <o>)
+(<op> ^entry <e2>)
+(<e2> ^shape_count <shpcnt>
+	^flags <fg>
+	-^numerflg.type <shape>)
+(<shpcnt> ^count <num>
+ 		^type <shape>)
+(<e1> ^numerosity <numer>)
+(<numer> ^amount <num>
+		^type <shape>)
+(<o> ^name add_flag_numerosity)
+-->
+(<e2> ^numerflg <numerflg>)
+(<numerflg> ^type <shape>
+			^amount <num>)
+(<fg> ^flag <r>)
+}
+
+sp {propose*operator*add_flag_dist_three
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^figure.shape <s1>
+	-^distTflg <flag>)
+(<e1> ^dist_three <dist_three>)
+(<dist_three> ^type shape
+			^shape <s1>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_flag_dist_three)
+}
+
+sp {apply*operator*add_flag_dist_three
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entryGuess <e1>			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^figure.shape <s1>
+	-^distTflg <flag>
+	^flags <fg>)
+(<e1> ^dist_three <dist_three>)
+(<dist_three> ^type shape
+			^shape <s1>)
+(<o> ^name add_flag_dist_three)
+-->
+(<e2> ^distTflg <x>)
+(<fg> ^flag <r>)
+}
+
+sp {propose*operator*add_flag_size
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^figure.size <sz>
+	-^szflg.amount <sz>)
+(<e1> ^size <sz>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_flag_size)
+}
+
+sp {apply*operator*add_flag_size
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entryGuess <e1>			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^figure.size <sz>
+		^flags <fg>
+	-^szflg.type <sz>)
+(<e1> ^size <sz>)
+(<o> ^name add_flag_size)
+-->
+(<e2> ^szflg <szflg>)
+(<szflg> ^amount <sz>)
+(<fg> ^flag <r>)
+}
+
+sp {propose*operator*create_flag_count
+(state <s> ^type state
+			^name fairaven						
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^flags <fg>
+	-^flag_count <fnc>)
+(<fg> ^flag <r>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name flag_count)
+}
+
+sp {apply*operator*create_flag_count
+(state <s> ^type state
+			^name fairaven						
+			^options <op>
+			^operator <o>)
+(<op> ^entry <e2>)
+(<e2> ^flags <fg>)
+(<fg> ^flag <r>)
+(<o> ^name flag_count)
+-->
+(<e2> ^flag_count (size <fg>)
+		^count_figures (size <e2>) )
+}
+
+# sp {propose*operator*remove_answer_size
+# (state <s> ^type state
+# 			^name fairaven
+# 			^entryGuess <e1>			
+# 			^options <op>)
+# (<op> ^entry <e2>)
+# (<e2> -^flag keep_size)
+# -->
+# (<s> ^operator <o> + =)
+# (<o> ^name remove_answer)
+# }
+
+
+# sp {propose*operator*remove_answer_count
+# (state <s> ^type state
+# 			^name fairaven
+# 			^entryGuess <e1>			
+# 			^options <op>)
+# (<op> ^entry <e2>)
+# (<e2> -^flag keep_count)
+# -->
+# (<s> ^operator <o> + > =)
+# (<o> ^name remove_answer)
+# }
+
+# sp {propose*operator*remove_answer_size
+# (state <s> ^type state
+# 			^name fairaven
+# 			^entryGuess <e1>			
+# 			^options <op>)
+# (<op> ^entry <e2>)
+# (<e2> -^flag keep_size)
+# -->
+# (<s> ^operator <o> + =)
+# (<o> ^name remove_answer)
+# }
+
+# sp {apply*operator*remove_answer_count
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o>
+# 			^options <op>)
+# (<op> ^entry <e2>)
+# (<e2> -^flag keep_count
+# 	^id <id>)
+# (<o> ^name remove_answer)
+# -->
+# (write |ruled out |<id>| for count mismatch| (crlf) )
+# (<op> ^entry <e2> -)
+# }
+
+# sp {apply*operator*remove_answer_size
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o>
+# 			^options <op>)
+# (<op> ^entry <e2>)
+# (<e2> -^flag keep_size
+# 	^id <id>)
+# (<o> ^name remove_answer)
+# -->
+# (write |ruled out |<id>| for size mismatch| (crlf) )
+# (<op> ^entry <e2> -)
+# }
+
+
+sp {propose*operator*select_answer
+(state <s> ^type state
+			^name fairaven			
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2>  ^flag_count <fcnt>
+	^count_figures <fgcnt>)
+-->
+(<s> ^operator <o> +)
+(<o> ^name select_answer
+	^entry <e2>
+	^count <fcnt>
+	^count_figures <fgcnt>)
+}
+
+sp {apply*operator*select_answer
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^options <op>)
+(<op> ^entry <e2>)
+(<e2> ^id <id>)
+(<o> ^name select_answer
+	^entry <e2>
+	^count <fcnt>
+	^count_figures <fgcnt>)
+-->
+(write |selected answer: | <id> )
+(halt)
+}
+
+sp {preference*select_operator_select_answer
+(state <s> ^type state
+			^name fairaven
+			^operator <o> +
+			^operator <o2> +)
+(<o2> ^name select_answer
+	^entry <e2>
+	^count <fcnt1>
+	^count_figures <cnt1>)
+(<o> ^name select_answer
+	^entry { <> <e2> <e1>}
+	^count <fnc2> > <fcnt1> 
+	^count_figures <cnt2e>)
+-->
+(<s> ^operator <o> > <o2>)
+}
+
+sp {preference*select_operator_select_answer_tie
+(state <s> ^type state
+			^name fairaven
+			^operator <o> +
+			^operator <o2> +)
+(<o2> ^name select_answer
+	^entry <e2>
+	^count <fcnt1>
+	^count_figures <cnt1>)
+(<o> ^name select_answer
+	^entry { <> <e2> <e1>}
+	^count <fnct1>
+	^count_figures <cnt2> < <cnt1>)
+-->
+(<s> ^operator <o> > <o2>)
+}
+
+

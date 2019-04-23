@@ -1,0 +1,98 @@
+#4 rules total
+#quantitative pairwise comparison
+#if two pairs are in the same row and have the same numerosity
+sp {propose*operator*quantitative_pairwise_progression_row
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			^pair { <> <p1> <p2> }
+			-^numerosity.row <rn>)
+(<p1> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^numerosity <numer1>
+		^entry1.id.col << 1 2 >>)
+(<numer1> ^amount <num>
+		^type <shape>)
+(<p2> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^numerosity <numer2>
+		^entry1.id.col << 2 3 >>)
+(<numer2> ^amount <num>
+		^type <shape>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name quantitative_pairwise_progression_row)
+}
+
+sp {apply*operator*quantitative_pairwise_progression_row
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			^pair { <> <p1> <p2> })
+(<p1> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^numerosity <numer1>
+		^entry1.id.col << 1 2 >>)
+(<numer1> ^amount <num>
+		^type <shape>)
+(<p2> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^numerosity <numer2>
+		^entry1.id.col << 2 3 >>)
+(<numer2> ^amount <num>
+		^type <shape>)
+(<o> ^name quantitative_pairwise_progression_row)
+-->
+(<s> ^numerosity <numer>)
+(<numer> ^row <rn>
+	 ^amount <num>
+	 ^type <shape>)
+}
+
+#quantitative pairwise comparison
+#if two pairs are in the same row and have the same numerosity
+sp {propose*operator*quantitative_pairwise_progression_col
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			^pair { <> <p1> <p2> }
+			-^numerosity.col <cn>)
+(<p1> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^numerosity <num>
+		^entry1.id.row << 1 2 >>)
+(<p2> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^numerosity <num>
+		^entry1.id.row << 2 3 >>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name quantitative_pairwise_progression_col)
+}
+
+sp {apply*operator*quantitative_pairwise_progression_col
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			^pair { <> <p1> <p2> })
+(<p1> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^numerosity <num>
+		^entry1.id.row << 1 2 >>)
+(<p2> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^numerosity <num>
+		^entry1.id.row << 2 3 >>)
+(<o> ^name quantitative_pairwise_progression_col)
+-->
+(<s> ^numerosity <numer>)
+(<numer> ^col <cn>
+	 ^amount <num>)
+}
+
+
+
+
+

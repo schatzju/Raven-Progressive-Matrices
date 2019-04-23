@@ -1,0 +1,98 @@
+#4 rules total
+#quantitative pairwise comparison
+#if two pairs are in the same row and have the same numerosity
+sp {propose*operator*quantitative_pairwise_progression_row_size
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			^pair { <> <p1> <p2> }
+			-^size.row <rn>)
+(<p1> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^size <sz1>
+		^entry1.id.col << 1 2 >>)
+(<sz1> ^amount <num>
+	^type <shape>)
+(<p2> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^size <sz2>
+		^entry1.id.col << 2 3 >>)
+(<sz2> ^amount <num>
+	^type <shape>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name quantitative_pairwise_progression_row_size)
+}
+
+sp {apply*operator*quantitative_pairwise_progression_row_size
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			^pair { <> <p1> <p2> })
+(<p1> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^size <sz1>
+		^entry1.id.col << 1 2 >>)
+(<sz1> ^amount <num>
+	^type <shape>)
+(<p2> ^entry1.id.row <rn>
+		^entry2.id.row <rn>
+		^size <sz2>
+		^entry1.id.col << 2 3 >>)
+(<sz2> ^amount <num>
+	^type <shape>)
+(<o> ^name quantitative_pairwise_progression_row_size)
+-->
+(<s> ^size <numer>)
+(<numer> ^row <rn>
+	 ^amount <num>
+	 ^type <shape>)
+}
+
+#quantitative pairwise comparison
+#if two pairs are in the same row and have the same numerosity
+sp {propose*operator*quantitative_pairwise_progression_col_size
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			^pair { <> <p1> <p2> }
+			-^size.col <cn>)
+(<p1> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^size <num>
+		^entry1.id.row << 1 2 >>)
+(<p2> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^size <num>
+		^entry1.id.row << 2 3 >>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name quantitative_pairwise_progression_col_size)
+}
+
+sp {apply*operator*quantitative_pairwise_progression_col_size
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			^pair { <> <p1> <p2> })
+(<p1> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^size <num>
+		^entry1.id.row << 1 2 >>)
+(<p2> ^entry1.id.col <cn>
+		^entry2.id.col <cn>
+		^size <num>
+		^entry1.id.row << 2 3 >>)
+(<o> ^name quantitative_pairwise_progression_col_size)
+-->
+(<s> ^size <numer>)
+(<numer> ^col <cn>
+	 ^amount <num>)
+}
+
+
+
+
+

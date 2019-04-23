@@ -1,0 +1,40 @@
+sp {propose*operator*clear
+(state <s> ^type state
+			^impasse no-change
+			^superstate <s1>)
+(<s1> ^name fairaven)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name clear)
+}
+
+sp {apply*operator*clear
+(state <s> ^type state
+			^superstate <s1>
+			^impasse no-change
+			^operator <o>)
+(<o> ^name clear)
+-->
+(<s1> ^name fairaven -)
+}
+
+sp {propose*operator*clear2
+(state <s> ^type state
+			-^name fairaven
+			^entry <e2>)
+(<e2> ^id.row 1
+	^id.col 1)
+-->
+(<s> ^operator <o> + >)
+(<o> ^name clear2)
+}
+
+sp {apply*operator*clear2
+(state <s> ^type state
+			^operator <o>)
+(<s> ^operator <o>)
+(<o> ^name clear2)
+-->
+(<s> ^name fairaven
+	^phase generate)
+}

@@ -1,0 +1,170 @@
+#10 rules total
+
+sp {propose*operator*generate_guess
+(state <s> ^type state
+			^name fairaven
+			^phase generate
+			-^entryGuess <e1>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name guess)
+}
+
+sp {apply*operator*generate_guess
+(state <s> ^type state
+			^name fairaven
+			^operator <o>)
+(<o> ^name guess)
+-->
+(<s> ^entryGuess <e1>)
+}
+
+sp {propose*operator*distribution_of_three_remove
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>
+			^entry <e8>
+			^distribution_of_three_generalized <dist3>)
+(<e1> -^dist_three.type shape)
+(<e8> ^id.col << 1 2 >>
+		^id.row 3
+		^figure.shape <s1>)
+(<dist3> ^type shape
+		^shape <s1>
+		^flag <f1>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name distribution_of_three_remove
+	^shape <s1>
+	^flag <f1>)
+}
+
+sp {apply*operator*distribution_of_three_remove
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^distribution_of_three_generalized <dist3>)
+(<dist3> ^type shape
+		^shape <s1>
+		^flag <f1>)
+(<o> ^name distribution_of_three_remove
+	^shape <s1>
+	^flag <f1>)
+-->
+(<dist3> ^shape <s1> -
+		^flag <f1> -)
+}
+
+sp {propose*operator*distribution_of_three_generate
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>
+			^distribution_of_three_generalized <ct>)
+(<e1> -^dist_three.type shape)
+(<ct> ^type shape
+		-^flag 1
+		-^flag 2)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name distribution_of_three_generate)
+}
+
+sp {apply*operator*distribution_of_three_generate
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entryGuess <e1>
+			^distribution_of_three_generalized <c1>)
+(<c1> ^type shape
+		^shape <s1>
+		-^flag 1
+		-^flag 2)
+(<o> ^name distribution_of_three_generate)
+-->
+(<e1> ^dist_three <dist3>)
+(<dist3> ^type shape
+		^shape <s1>)
+}
+
+sp {propose*operator*constant_in_row_generalized_applied_size
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>
+			^constant_in_row_generalized <ct>)
+(<e1> -^size <sz>)
+(<ct> ^type.name size)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name constant_in_row_generalized_size_applied)
+}
+
+sp {apply*operator*constant_in_row_generalized_applied_size
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entryGuess <e1>
+			^pair <p1>
+			^entry <e8>
+			^entry <e9>
+			^constant_in_row_generalized <c1>)
+(<c1> ^type.name size
+	^type.amount <amt>)
+(<p1> ^entry1 <e8>
+	^entry2 <e9>
+	^size <sz>)
+(<e9> ^id.row 3
+	^id.col 2
+	^figure <f1>)
+(<f1> ^size <size1>)
+(<e8> ^id.row 3
+	^id.col 1
+	^figure <f2>)
+(<f2> ^size <size2>)
+(<o> ^name constant_in_row_generalized_size_applied)
+-->
+(<e1> ^size ( + <amt> <size1> ) )
+}
+
+sp {propose*operator*constant_in_row_generalized_applied_numerosity
+(state <s> ^type state
+			^name fairaven
+			^entryGuess <e1>
+			^constant_in_row_generalized <ct>)
+(<e1> -^numerosity <num>)
+(<ct> ^type.name numerosity)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name constant_in_row_generalized_applied)
+}
+
+sp {apply*operator*constant_in_row_generalized_numerosity_applied
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entryGuess <e1>
+			^pair <p1>
+			^entry <e8>
+			^entry <e9>
+			^constant_in_row_generalized <c1>)
+(<c1> ^type.name numerosity
+	^type.amount <amt>
+	^type.type <shape>)
+(<p1> ^entry1 <e8>
+	^entry2 <e9>
+	^numerosity.amount <amt>)
+(<e9> ^id.row 3
+	^id.col 2
+	^shape_count <shpcnt2>)
+(<shpcnt2> ^count <num>
+	^type <shape>)
+(<e8> ^id.row 3
+	^id.col 1
+	^shape_count <shpcnt1>)
+(<shpcnt1> ^count <num2>
+			^type <shape>)
+(<o> ^name constant_in_row_generalized_applied)
+-->
+(<e1> ^numerosity <numer>)
+(<numer> ^amount ( + <amt> <num> )
+		^type <shape>)
+}

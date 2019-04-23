@@ -1,0 +1,47 @@
+#settings for query to only go 4 down the most active 
+#make base-level activation mean more than spreading
+
+
+#wma --set decay-rate .8
+#wma --set forgetting on
+wma --set activation on
+
+smem --set activation-mode base-level
+#leave until slow
+smem --set base-update-policy stable
+smem --set activate-on-query off
+smem --set spreading-depth-limit 1
+smem --set spreading-loop-avoidance on
+
+smem --set spreading-limit 1000 #702
+
+#smem --set spreading-continue-probability .99
+#smem --set base-decay .1
+smem --set spreading off
+smem --set learning on
+
+chunk never
+
+
+source initialize.soar
+source C2_init.soar
+source clear.soar
+source perceptual_analysis/encoding.soar
+source perceptual_analysis/create_pairs.soar
+source perceptual_analysis/pairwise.soar
+source perceptual_analysis/count_shapes.soar
+source perceptual_analysis/correspondences.soar
+
+source conceptual_analysis/constant_in_row.soar
+source conceptual_analysis/quantitative_pairwise_comparison_size.soar
+source conceptual_analysis/quantitative_pairwise_comparison_num.soar
+
+#source conceptual_analysis/figure_addition_or_subtraction.soar
+source conceptual_analysis/distribution_of_three.soar
+
+source response_generation_selection/generate.soar
+source response_generation_selection/select.soar
+
+
+
+

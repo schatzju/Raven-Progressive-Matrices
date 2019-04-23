@@ -1,0 +1,71 @@
+sp {apply*initialize-fairaven
+(state <s> ^operator <o>)
+	(<o> ^name fairaven)
+-->
+(<s> ^name fairaven
+	^iox <iox>)
+(<iox> ^entry <e1>
+		^entry <e2>
+		^entry <e3>
+		^entry <e4>
+		^entry <e5>
+		^entry <e6>)
+(<e1> ^id <r1>
+	^id <c1>
+	^figure <f1>)
+(<f1> ^shape circle
+	^texture none
+	^orientation 5)
+(<e2> ^id <r1>
+	^id <c2>
+	^figure <f2>)
+(<f2> ^shape circle
+	^texture filled
+	^orientation 5)
+(<e3> ^id <r1>
+	^id <c3>
+	^figure <f3>)
+(<f3> ^shape circle
+	^texture lined
+	^orientation 5)
+
+#quantitative comparison
+(<e4> ^id <r2>
+	^id <c1>
+	^figure <ff1>)
+(<ff1> ^shape circle
+	^texture none
+	^orientation 5)
+(<e5> ^id <r2>
+	^id <c2>
+	^figure <ff2>
+	^figure <ff3>)
+(<ff2> ^shape circle
+	^texture none
+	^orientation 4)
+(<ff3> ^shape circle
+	^texture none
+	^orientation 6)
+(<e6> ^id <r2>
+	^id <c3>
+	^figure <ff4>
+	^figure <ff5>
+	^figure <ff6>)
+(<ff4> ^shape circle
+	^texture none
+	^orientation 4)
+(<ff5> ^shape circle
+	^texture none
+	^orientation 5)
+(<ff6> ^shape circle
+	^texture none
+	^orientation 6)
+
+
+(<r1> ^row 1)
+(<r2> ^row 2)
+(<c1> ^col 1)
+(<c2> ^col 2)
+(<c3> ^col 3)
+(write |Initialized|)
+}

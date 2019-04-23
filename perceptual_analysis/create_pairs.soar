@@ -1,0 +1,174 @@
+#11 rules total
+
+sp {propose*operator*generate_pairs
+(state <s> ^type state
+			^name fairaven
+			-^pair
+			-^phase encoding
+			-^operator.name << add_correspondence generalize_row_correspondence >> )
+-->
+(<s> ^operator <o> + =)
+(<o> ^name generate_pairs)
+}
+
+sp {apply*operator*generate_pairs1-4
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 1
+	^id.col 1)
+(<e2> ^id.row 1
+	^id.col 2)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+
+sp {apply*operator*generate_pairs1-2
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 1
+	^id.col 1)
+(<e2> ^id.row 2
+	^id.col 1)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs2-3
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 1
+	^id.col 2)
+(<e2> ^id.row 1
+	^id.col 3)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs2-5
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 1
+	^id.col 2)
+(<e2> ^id.row 2
+	^id.col 2)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs3-6
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 1
+	^id.col 3)
+(<e2> ^id.row 2
+	^id.col 3)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs4-5
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 2
+	^id.col 1)
+(<e2> ^id.row 2
+	^id.col 2)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs4-7
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 2
+	^id.col 1)
+(<e2> ^id.row 3
+	^id.col 1)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs5-6
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 2
+	^id.col 2)
+(<e2> ^id.row 2
+	^id.col 3)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs5-8
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 2
+	^id.col 2)
+(<e2> ^id.row 3
+	^id.col 2)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}
+sp {apply*operator*generate_pairs7-8
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^entry <e1>
+			^entry <e2>)
+(<e1> ^id.row 3
+	^id.col 1)
+(<e2> ^id.row 3
+	^id.col 2)
+(<o> ^name generate_pairs)
+-->
+(<s> ^pair <p1>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+}

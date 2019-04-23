@@ -1,0 +1,320 @@
+#7 rules total
+
+#match things with the same name and same texture
+# sp {propose*operator*add_correspondence_texture_name
+# (state <s> ^type state
+# 			^name fairaven
+# 			^group <g1>
+# 			-^phase encoding)
+# (<g1> ^row <r1>
+# 	^entry { <> <e2> <e1> }
+# 	^entry { <> <e3> <e2> }
+# 	^entry { <> <e1> <e3> })
+# (<e1> ^figure <f1>)
+# (<e2> ^figure <f2>)
+# (<e3> ^figure <f3>)
+# (<f1> -^matched <mt1>
+# 		^texture <txt>
+# 		^shape <shp>)
+# (<f2> -^matched <mt2>		
+# 		^texture <txt>
+# 		^shape <shp>)
+# (<f3> -^matched <mt3>
+# 		^texture <txt>
+# 		^shape <shp>)
+# -->
+# (<s> ^operator <o> + > =)
+# (<o> ^name add_correspondence
+# 	^type name
+# 	^sub-type text_name
+# 	^figure-1 <f1>
+# 	^figure-2 <f2>
+# 	^figure-3 <f3>
+# 	^row <r1>)
+# }
+#match things with the same name and same texture
+sp {propose*operator*add_correspondence_size_name
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			-^phase encoding)
+(<g1> ^row <r1>
+	^entry { <> <e2> <e1> }
+	^entry { <> <e3> <e2> }
+	^entry { <> <e1> <e3> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<e3> ^figure <f3>)
+(<f1> -^matched <mt1>
+		^size <sz>
+		^shape <shp>)
+(<f2> -^matched <mt2>		
+		^size <sz>
+		^shape <shp>)
+(<f3> -^matched <mt3>
+		^size <sz>
+		^shape <shp>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_correspondence
+	^type name
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^figure-3 <f3>
+	^sub-type size_name
+	^row <r1>)
+}
+
+sp {propose*operator*add_correspondence_name
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			-^phase encoding)
+(<g1> ^row <r1>
+	^entry { <> <e2> <e1> }
+	^entry { <> <e3> <e2> }
+	^entry { <> <e1> <e3> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<e3> ^figure <f3>)
+(<f1> -^matched <mt1>
+		^shape <shp>)
+(<f2> -^matched <mt2>		
+		^shape <shp>)
+(<f3> -^matched <mt3>
+		^shape <shp>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_correspondence
+	^type name
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^figure-3 <f3>
+	^sub-type name
+	^row <r1>)
+}
+
+sp {propose*operator*add_correspondence_size_name_last_row
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			-^phase encoding)
+(<g1> ^row 3
+	^entry { <> <e2> <e1> }
+	^entry { <> <e1> <e2> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<f1> -^matched <mt1>
+		^size <sz>
+		^shape <shp>)
+(<f2> -^matched <mt2>		
+		^size <sz>
+		^shape <shp>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_correspondence
+	^type name
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^sub-type size_name
+	^row 3)
+}
+
+sp {propose*operator*add_correspondence_name_last_row
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			-^phase encoding)
+(<g1> ^row 3
+	^entry { <> <e2> <e1> }
+	^entry { <> <e1> <e2> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<f1> -^matched <mt1>
+		^shape <shp>)
+(<f2> -^matched <mt2>		
+		^shape <shp>)
+-->
+(<s> ^operator <o> + > =)
+(<o> ^name add_correspondence
+	^type name
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^sub-type name
+	^row 3)
+}
+
+#match things with the same name
+
+# sp {propose*operator*add_correspondence_name
+# (state <s> ^type state
+# 			^name fairaven
+# 			^group <g1>
+# 			-^phase encoding)
+# (<g1> ^row <r1>
+# 	^entry { <> <e2> <e1> }
+# 	^entry { <> <e3> <e2> }
+# 	^entry { <> <e1> <e3> })
+# (<e1> ^figure <f1>)
+# (<e2> ^figure <f2>)
+# (<e3> ^figure <f3>)
+# (<f1> -^matched <mt1>
+# 		^shape <shp>)
+# (<f2> -^matched <mt2>		
+# 		^shape <shp>)
+# (<f3> -^matched <mt3>
+# 		^shape <shp>)
+# -->
+# (<s> ^operator <o> + > =)
+# (<o> ^name add_correspondence
+# 	^figure-1 <f1>
+# 	^figure-2 <f2>
+# 	^figure-3 <f3>
+# 	^type name
+# 	^sub-type none
+# 	^row <r1>)
+# }
+
+# sp {propose*operator*add_correspondence_leftover
+# (state <s> ^type state
+# 			^name fairaven
+# 			^group <g1>
+# 			-^phase encoding)
+# (<g1> ^row <r1>
+# 	^entry { <> <e2> <e1> }
+# 	^entry { <> <e3> <e2> }
+# 	^entry { <> <e1> <e3> })
+# (<e1> ^figure <f1>)
+# (<e2> ^figure <f2>)
+# (<e3> ^figure <f3>)
+# (<f1> -^matched <mt1>)
+# (<f2> -^matched <mt2>)
+# (<f3> -^matched <mt3>)
+# -->
+# (<s> ^operator <o> + > =)
+# (<o> ^name add_correspondence
+# 	^figure-1 <f1>
+# 	^figure-2 <f2>
+# 	^figure-3 <f3>
+# 	^type none
+# 	^row <r1>)
+# }
+
+sp {apply*operator*add_correspondence_last_row
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			^operator <o>
+			^group <g1>)
+(<g1> ^row <r1>
+	^entry { <> <e2> <e1> }
+	^entry { <> <e1> <e2> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<o> ^name add_correspondence
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^type <type>
+	^row 3
+	^sub-type <sub>)
+-->
+(<s> ^row_correspondence <corr>)
+(<corr> ^figure1 <f1>
+		^figure2 <f2>
+		^figure <f1>
+		^figure <f2>
+		^type <type>
+		^sub-type <sub>
+		^row 3)
+(<f1> ^matched <mt1>)
+(<f2> ^matched <mt2>)
+}
+
+sp {apply*operator*add_correspondence
+(state <s> ^type state
+			^name fairaven
+			^group <g1>
+			^operator <o>
+			^group <g1>)
+(<g1> ^row <r1>
+	^entry { <> <e2> <e1> }
+	^entry { <> <e3> <e2> }
+	^entry { <> <e1> <e3> })
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<e3> ^figure <f3>)
+(<o> ^name add_correspondence
+	^figure-1 <f1>
+	^figure-2 <f2>
+	^figure-3 <f3>
+	^type <type>
+	^row <r1>
+	^sub-type <sub>)
+-->
+(<s> ^row_correspondence <corr>)
+(<corr> ^figure1 <f1>
+		^figure2 <f2>
+		^figure3 <f3>
+		^figure <f1>
+		^figure <f2>
+		^figure <f3>
+		^type <type>
+		^sub-type <sub>
+		^row <r1>)
+(<f1> ^matched <mt1>)
+(<f2> ^matched <mt2>)
+(<f3> ^matched <mt3>)
+}
+
+# sp {preference*select_operator_create_correspondence
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o> +
+# 			^operator <o2> +)
+# (<o2> ^name add_correspondence
+# 	^type name)
+# (<o> ^name add_correspondence
+# 	^type none)
+# -->
+# (<s> ^operator <o2> > <o>)
+# }
+
+
+sp {preference*select_operator_create_correspondence_two
+(state <s> ^type state
+			^name fairaven
+			^operator <o> +
+			^operator <o2> +)
+(<o2> ^name add_correspondence
+	^type name
+	^sub-type size_name)
+(<o> ^name add_correspondence
+	^type name
+	^sub-type name)
+-->
+(<s> ^operator <o2> > <o>)
+}
+
+# sp {preference*select_operator_create_correspondence_threee
+# (state <s> ^type state
+# 			^name fairaven
+# 			^operator <o> +
+# 			^operator <o2> +)
+# (<o2> ^name add_correspondence
+# 	^type name
+# 	^sub-type none)
+# (<o> ^name add_correspondence
+# 	^type name
+# 	^sub-type size_text_name)
+# -->
+# (<s> ^operator <o> > <o2>)
+# }
+
+
+
+
+
+
+
+
+

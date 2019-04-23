@@ -1,0 +1,89 @@
+#4 rules total
+#pairwise comparisons
+sp {propose*operator*numerosity
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			-^phase count_shapes)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>
+		-^numerosity <numer>)
+(<e1> ^shape_count <shpcnt1>)
+(<e2> ^shape_count <shpcnt2>)
+(<shpcnt1> ^type <shape>)
+(<shpcnt2> ^type <shape>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name numerosity)
+}
+
+sp {apply*operator*numerosity
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			-^phase count_shapes)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>)
+(<e1> ^shape_count <shpcnt1>)
+(<e2> ^shape_count <shpcnt2>)
+(<shpcnt1> ^type <shape>
+			^count <cnt1>)
+(<shpcnt2> ^type <shape>
+			^count <cnt2>)
+(<o> ^name numerosity)
+-->
+(<p1> ^numerosity <numer>)
+(<numer> ^amount (- <cnt2> <cnt1>)
+		^type <shape>)
+}
+
+#pairwise comparisons 
+sp {propose*operator*size
+(state <s> ^type state
+			^name fairaven
+			^pair <p1>
+			-^phase count_shapes
+			^row_correspondence <corr>)
+(<corr> ^figure <f1>
+		^figure <f2>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>
+		-^size <size>)
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<f1> ^shape <shape>
+	^size <size1>)
+(<f2> ^shape <shape>
+	^size <size2>)
+-->
+(<s> ^operator <o> + =)
+(<o> ^name size)
+}
+
+sp {apply*operator*size
+(state <s> ^type state
+			^name fairaven
+			^operator <o>
+			^pair <p1>
+			-^phase count_shapes
+			^row_correspondence <corr>)
+(<corr> ^figure <f1>
+		^figure <f2>)
+(<p1> ^entry1 <e1>
+		^entry2 <e2>
+		-^size <size>)
+(<e1> ^figure <f1>)
+(<e2> ^figure <f2>)
+(<f1> ^shape <shape>
+	^size <size1>)
+(<f2> ^shape <shape>
+	^size <size2>)
+(<o> ^name size)
+-->
+(<p1> ^size <sz>)
+(<sz> ^amount (- <size2> <size1>)
+	^type <shape>
+	^figure <f1>
+	^figure <f2>)
+}
